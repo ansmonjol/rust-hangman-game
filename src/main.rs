@@ -22,5 +22,22 @@ fn main() {
         // Clean input backline
         let len = input.trim_end_matches(&['\r', '\n'][..]).len();
         input.truncate(len);
+
+        // Check against user input and word to guess
+        for (i, w) in word_to_guess.chars().enumerate() {
+            // If user guessed one letter
+            if w.to_string() == input {
+                // Replace the char '_' at the same position with the user input
+                typed_word.replace_range(i..i+1, &w.to_string());
+            }
+        }
+        
+        // Word check
+        if typed_word == word_to_guess {
+            println!("Congrats! You found the word {}", word_to_guess);
+            is_valid = true;
+        } else {
+            println!("You found typed_word, congrats! {}", typed_word)
+        }
     }
 }
