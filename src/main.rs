@@ -7,10 +7,10 @@ fn main() {
     for _ in 0..word_to_guess.len() { typed_word.push('_') }
 
 
-    println!("Word to guess: {}", &typed_word);
+    println!("Word to guess contains {} letters", &typed_word.len());
 
     while !is_valid {
-        println!("Please enter a letter");
+        println!("Please enter a letter:");
         
         // Get user input
         let mut input = String::new();
@@ -37,7 +37,7 @@ fn main() {
             println!("Congrats! You found the word {}", word_to_guess);
             is_valid = true;
         } else {
-            println!("You found typed_word, congrats! {}", typed_word)
+            println!("You found the letter {}, congrats!\n{}\n", input, typed_word)
         }
     }
 }
