@@ -1,7 +1,13 @@
 use std::io;
+use rand::Rng;
 
 fn main() {
-    let word_to_guess = String::from("table");
+    // Define word to guess
+    let word_dictionary = ["table", "apple", "house", "mousse"];
+    let mut rng = rand::thread_rng();
+    let word_to_guess = word_dictionary[rng.gen_range(0..word_dictionary.len())];
+
+    // Define Needed variables for the game
     let mut is_valid = false;
     let mut typed_word = String::new();
     for _ in 0..word_to_guess.len() { typed_word.push('_') }
